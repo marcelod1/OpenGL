@@ -227,6 +227,7 @@ int main()
 
 		glm::mat4 model(1.0f);
 		model = glm::translate(model, glm::vec3(triOffset, triOffset, 0.0f));
+		
 
 		glUseProgram(shader);
 		

@@ -1,2 +1,4 @@
 C:\Projetos VisualStudio\OpenGLCourseApp\Debug\OpenGLCourseApp.exe
 C:\Projetos VisualStudio\OpenGLCourseApp\Debug\OpenGLCourseApp.pdb
+C:\Projetos VisualStudio\OpenGLCourse\Debug\OpenGLCourseApp.exe
+C:\Projetos VisualStudio\OpenGLCourse\Debug\OpenGLCourseApp.pdb
