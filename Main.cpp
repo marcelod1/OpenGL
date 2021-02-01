@@ -11,13 +11,16 @@
 
 //Windows dimensions
 const GLint WIDHT = 800, HEIGHT = 600;
+const float toRadians = 3.14159265f / 180.0f;
 
 GLuint VAO, VBO, shader, uniformModel;
 
 bool direction = true;
 float triOffset = 0.0f;
-float triMaxOffset = 5.0f;
-float triIncrement = 0.1f;
+float triMaxOffset = 0.45f;
+float triIncrement = 0.01f;
+
+float curAngle = 0.0f;
 
 
 
@@ -30,7 +33,7 @@ uniform  mat4 model;                                     \n\
 void main()												  \n\
 {                                                         \n\
                                                           \n\
-gl_Position = model * vec4(0.4 * pos.x, 0.4 * pos.y, pos.z, 1.0); \n\
+gl_Position = model * vec4(pos.x * 0.4, pos.y * 0.4, pos.z, 1.0); \n\
 }";
 
 
@@ -221,11 +224,19 @@ int main()
 			direction = !direction;
 		}
 
+		curAngle += 1.0f;
+		if (curAngle >= 360)
+		{
+			curAngle -= 360;
+		}
+
 		// Clear window
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		glm::mat4 model(1.0f);
+
+		model = glm::rotate(model, curAngle * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::translate(model, glm::vec3(triOffset, triOffset, 0.0f));
 		
 
