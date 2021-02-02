@@ -33,10 +33,13 @@ static const char* vShader = "						      \n\
 #version 330                                              \n\
 layout (location = 0) in vec3 pos;					      \n\
 uniform  mat4 model;                                     \n\
+out vec4 vCol;											\n\
+			                                             \n\
 void main()												  \n\
 {                                                         \n\
                                                           \n\
-gl_Position = model * vec4(pos, 1.0); \n\
+gl_Position = model * vec4(pos, 1.0);					\n\
+vCol = vec4(clamp(pos, 0.0f, 1.0f), 1.0f);				 \n\
 }";
 
 
@@ -46,10 +49,12 @@ gl_Position = model * vec4(pos, 1.0); \n\
 
 static const char* fShader = "						    \n\
 #version 330                                            \n\
+in vec4 vCol;                                           \n\
+                                                        \n\
 out vec4 colour;					                    \n\
 void main()												\n\
 {                                                       \n\
-colour = vec4(1.0, 0.0, 0.0, 1.0);						\n\
+	colour = vCol;	                   					\n\
 }";
 
 
@@ -252,9 +257,9 @@ int main()
 
 		glm::mat4 model(1.0f);
 
-		model = glm::rotate(model, toRadians * curAngle, glm::vec3(0.0f, 0.0f, 1.0f));
-		model = glm::translate(model, glm::vec3(triOffset, 0.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(curSize, curSize, 1.0f));
+		//model = glm::rotate(model, toRadians * curAngle, glm::vec3(0.0f, 0.0f, 1.0f));
+		//model = glm::translate(model, glm::vec3(triOffset, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.4, 0.4, 1.0f));
 		
 
 		glUseProgram(shader);
