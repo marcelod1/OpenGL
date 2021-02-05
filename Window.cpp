@@ -4,18 +4,22 @@ Window::Window()
 {
 	width = 800;
 	height = 600;
+	
 
 	for (size_t i = 0; i < 1024; i++)
 	{
 		keys[i] = 0;
 	}
+
+	xChange = 0.0f;
+	yChange = 0.0f;
 }
 
 
 Window::Window(GLint windowWidth, GLint windowHeight)
 {	
-	width = 800;
-	height = 600;
+	width = windowWidth;
+	height = windowHeight;
 	
 	for (size_t i = 0; i < 1024; i++)
 	{
@@ -111,7 +115,7 @@ void Window::handleKeys(GLFWwindow* window, int key, int code, int action, int m
 		else if (action == GLFW_RELEASE)
 		{
 			theWindow->keys[key] = false;
-			printf("Released %d \n", key);
+			//printf("Released %d \n", key);
 
 		}
 	}

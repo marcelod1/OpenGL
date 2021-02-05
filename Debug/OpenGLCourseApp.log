@@ -1,9 +1,3 @@
-﻿  Window.cpp
-C:\Projetos VisualStudio\OpenGLCourse\Window.cpp(126,22): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Projetos VisualStudio\OpenGLCourse\Window.cpp(127,22): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Projetos VisualStudio\OpenGLCourse\Window.cpp(131,28): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Projetos VisualStudio\OpenGLCourse\Window.cpp(132,40): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Projetos VisualStudio\OpenGLCourse\Window.cpp(134,21): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Projetos VisualStudio\OpenGLCourse\Window.cpp(135,21): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-C:\Projetos VisualStudio\OpenGLCourse\Window.cpp(83): warning C4715: 'Window::Initialise': not all control paths return a value
+﻿  Main.cpp
+C:\Projetos VisualStudio\OpenGLCourse\Main.cpp(89,15): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
   OpenGLCourseApp.vcxproj -> C:\Projetos VisualStudio\OpenGLCourse\Debug\OpenGLCourseApp.exe
