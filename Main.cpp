@@ -25,6 +25,9 @@ Camera camera;
 GLfloat deltaTime = 0.0f;
 GLfloat lastTime = 0.0f;
 
+double previousTime = glfwGetTime();
+int frameCount = 0;
+
 // Vertex Shader
 static const char* vShader = "Shaders/shader.vert";
 
@@ -69,13 +72,16 @@ int main()
 {
 	//Initalise GLFW
 	
+	glfwSwapInterval(0);
+	
+
 	mainWindow = Window(800, 600);
 	mainWindow.Initialise();
 
 	CreateObjects();
 	CreateShaders();
 
-	camera = Camera(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -90.0f, 0.0f, 5.0f, 0.5f);
+	camera = Camera(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -90.0f, 0.0f, 4.0f, 0.5f);
 
 	GLuint uniformProjection = 0, uniformModel = 0, uniformView = 0;
 
@@ -92,7 +98,7 @@ int main()
 		//Get Handlee user input events
 		glfwPollEvents();
 		camera.keyControl(mainWindow.getsKeys(), deltaTime);
-		camera.mouseControl(mainWindow.getXchange(), mainWindow.getYchange());
+		camera.mouseControl(mainWindow.getXChange(), mainWindow.getYChange());
 		
 		// Clear window
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -123,7 +129,30 @@ int main()
 		glUseProgram(0);
 
 		mainWindow.swapBuffers();
+
+		double currentTime = glfwGetTime();
+		frameCount++;
+		
+		// If a second has passed.
+		if (currentTime - previousTime >= 1.0)
+		{
+			// Display the frame count here any way you want.
+			
+			std::cout << frameCount << std::endl;
+			frameCount = 0;
+			previousTime = currentTime;
+		}
 	}
 	 
+
+
+	
+	
+
+
 	return 0;
 }
+
+
+
+

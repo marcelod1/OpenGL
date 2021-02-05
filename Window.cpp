@@ -26,6 +26,8 @@ Window::Window(GLint windowWidth, GLint windowHeight)
 		keys[i] = 0;
 	}
 
+	xChange = 0.0f;
+	yChange = 0.0f;
 }
 
 int Window::Initialise()
@@ -142,7 +144,7 @@ void Window::handleMouse(GLFWwindow* window, double xPos, double yPos)
 }
 
 
-GLfloat Window::getXchange()
+GLfloat Window::getXChange()
 {
 
 	GLfloat theChange = xChange;
@@ -150,7 +152,7 @@ GLfloat Window::getXchange()
 	return theChange;
 }
 
-GLfloat Window::getYchange()
+GLfloat Window::getYChange()
 {
 	GLfloat theChange = yChange;
 	yChange = 0.0f;
