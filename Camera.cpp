@@ -49,15 +49,15 @@ void Camera::mouseControl(GLfloat xChange, GLfloat yChange)
 	yaw += xChange;
 	pitch += yChange;
 
-	if (pitch > 89.0f)	
+	if (pitch > 89.0f)
 	{
 		pitch = 89.0f;
 	}
 
-		if (pitch < -89.0f)
-		{
-			pitch = -89.0f;
-		}
+	if (pitch < -89.0f)
+	{
+		pitch = -89.0f;
+	}
 
 	update();
 }
@@ -70,6 +70,10 @@ glm::mat4 Camera::calculateViewMatrix()
 glm::vec3 Camera::getCameraPosition()
 {
 	return position;
+}
+glm::vec3 Camera::getCameraDirection()
+{
+	return glm::normalize(front);
 }
 
 void Camera::update()

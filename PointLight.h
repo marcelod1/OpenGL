@@ -1,28 +1,25 @@
 #pragma once
 #include "Light.h"
+
 class PointLight :
-    public Light
+	public Light
 {
 public:
+	PointLight();
+	PointLight(GLfloat red, GLfloat green, GLfloat blue,
+		GLfloat aIntensity, GLfloat dIntensity,
+		GLfloat xPos, GLfloat yPos, GLfloat zPos,
+		GLfloat con, GLfloat lin, GLfloat exp);
 
-    PointLight();
+	void UseLight(GLuint ambientIntensityLocation, GLuint ambientColourLocation,
+		GLuint diffuseIntensityLocation, GLuint positionLocation,
+		GLuint constantLocation, GLuint linearLocation, GLuint exponentLocation);
 
-    PointLight(GLfloat red, GLfloat green, GLfloat blue,
-                GLfloat aIntensity, GLfloat dIntensity,
-                GLfloat xPos, GLfloat yPos, GLfloat zPos,
-                GLfloat con, GLfloat lin, GLfloat exp);
+	~PointLight();
 
-    ~PointLight();
+protected:
+	glm::vec3 position;
 
-    void UseLight(GLfloat ambientIntenistyLocation, GLfloat ambientColourLocation,
-        GLfloat diffuseIntensityLocation, GLfloat positionLocation,
-        GLfloat constantLocation, GLfloat linearLocation, GLfloat exponentLocation);
-
-
-private:
-    glm::vec3 position;
-
-    GLfloat constant, linear, exponent;
-
+	GLfloat constant, linear, exponent;
 };
 
